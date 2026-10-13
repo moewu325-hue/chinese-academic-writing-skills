@@ -1,0 +1,92 @@
+{
+  "label_version": "2026-10-12.1",
+  "cases": [
+    {
+      "id": "C01",
+      "equivalent_candidate": "X",
+      "other_candidate": "Y",
+      "checks": [
+        "紧密信息可合句",
+        "条件仍约束分析与结果",
+        "不添加因果"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C02",
+      "equivalent_candidate": "X",
+      "other_candidate": "Y",
+      "checks": [
+        "保留样本量、成年人、横断面、控制项和关联",
+        "正文完成信息后停止",
+        "不追加自拟检验计划"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C03",
+      "equivalent_candidate": "Y",
+      "other_candidate": "X",
+      "checks": [
+        "同一范围的重复排除精简",
+        "不把研究内容改为全部方法"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C04",
+      "equivalent_candidate": "Y",
+      "other_candidate": "X",
+      "checks": [
+        "仅成年样本",
+        "未发现显著差异而非没有差异",
+        "p值原样"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C05",
+      "equivalent_candidate": "X",
+      "other_candidate": "Y",
+      "checks": [
+        "拟访谈而非已访谈",
+        "10名教师",
+        "保留作者独立理论评价"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C06",
+      "equivalent_candidate": "Y",
+      "other_candidate": "X",
+      "checks": [
+        "每个小组分别覆盖全部样本",
+        "高温条件约束所有动作",
+        "保留各样本颜色"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C07",
+      "equivalent_candidate": "X",
+      "other_candidate": "Y",
+      "checks": [
+        "甲20%引用1训练",
+        "乙10%引用2对照",
+        "数值集合相同仍可能错绑"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    },
+    {
+      "id": "C08",
+      "equivalent_candidate": "Y",
+      "other_candidate": "X",
+      "checks": [
+        "允许零修改",
+        "关联保持关联",
+        "120名成年人"
+      ],
+      "comparison_basis": "语义与任务约定分开；C02中的自拟保险句为任务约定偏差"
+    }
+  ]
+}
