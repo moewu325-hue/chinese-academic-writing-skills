@@ -56,7 +56,7 @@ a &= b + c \\
 
 ### Equation Cases
 ```latex
-f(x) = 
+f(x) =
 \begin{cases}
 x^2 & \text{if } x \geq 0 \\
 -x^2 & \text{if } x < 0
@@ -177,7 +177,7 @@ Let $f$ be a continuous function on $[a,b]$. Then...
 ### Proof Example
 ```latex
 \begin{proof}
-Let $x$ be any element of the set. 
+Let $x$ be any element of the set.
 Since $x$ satisfies property $P$, we have...
 Therefore, the theorem holds.
 \end{proof}

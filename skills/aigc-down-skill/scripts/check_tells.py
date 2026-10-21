@@ -336,7 +336,8 @@ def check_versions(root, *, index=None, host=None):
     if baseline:
         result['summaries']['reference_version'] = baseline['version']
         for record in records:
-            if record['version'] != baseline['version']:
+            # 职责版本独立演进，仅检查字段完整性。
+            if record['field'] != '职责版本' and record['version'] != baseline['version']:
                 result['findings'].append({'category': 'version_mismatch', **record,
                                           'reference_version': baseline['version'],
                                           'question': f'此{record["field"]}为{record["version"]}，与共享执行基准{baseline["version"]}不一致；是否需同步规则？'})

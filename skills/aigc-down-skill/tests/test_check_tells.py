@@ -258,6 +258,7 @@ class CheckerTests(unittest.TestCase):
             folder = Path(temp)
             self.fixture(folder)
             (folder / 'academic-researcher' / 'SKILL.md').write_text('标题\n职责版本2026-10-08.1。', encoding='utf-8')
+            (folder / 'research-writing-skill' / 'SKILL.md').write_text('标题\n执行版本2026-10-08.1。', encoding='utf-8')
             index = folder / 'index.md'
             index.write_text('共享规则版本2026-10-07.3。', encoding='utf-8')
             host = folder / 'host'
@@ -270,9 +271,21 @@ class CheckerTests(unittest.TestCase):
             mismatches = [f for f in result['findings'] if f['category'] == 'version_mismatch']
             self.assertEqual(len(mismatches), 1)
             self.assertEqual(mismatches[0]['location']['line'], 2)
-            self.assertEqual(mismatches[0]['field'], '职责版本')
+            self.assertEqual(mismatches[0]['field'], '执行版本')
             self.assertEqual(len(result['summaries']['host_versions']), 2)
             self.assertEqual(result['summaries']['host_versions'][0]['version'], '2099-01-01-host')
+
+    def test_independent_duty_version_is_reported_without_shared_mismatch(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            self.fixture(folder)
+            (folder / 'academic-researcher' / 'SKILL.md').write_text(
+                '职责版本2026-10-12.1。', encoding='utf-8')
+            result = self.cli('--check', '--root', folder, '--json')
+            self.assertEqual(result['execution_status'], 'ok')
+            self.assertEqual(result['findings'], [])
+            duty = [r for r in result['summaries']['versions'] if r['field'] == '职责版本']
+            self.assertEqual(duty[0]['version'], '2026-10-12.1')
 
     def test_version_missing_duplicate_and_missing_file_reported(self):
         with tempfile.TemporaryDirectory() as temp:

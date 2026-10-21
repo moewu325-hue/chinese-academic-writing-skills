@@ -1,0 +1,17 @@
+name: Tests
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -I -B -m unittest discover -s skills/aigc-down-skill/tests -v
+      - run: python -I -B -m unittest discover -s tests -v
+      - run: python -I -B skills/aigc-down-skill/scripts/check_tells.py --check --root skills --json
+      - run: python -I -B tools/build_release.py --output build/chinese-academic-writing-skills.zip
+      - run: git diff --exit-code -- SHA256SUMS
